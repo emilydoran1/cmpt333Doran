@@ -34,3 +34,4 @@ equals(List1, List2) :-
 	unnest_v1(List2, FlatList2),
 	sublist(FlatList1, FlatList2),
 	sublist(FlatList2, FlatList1).
+
