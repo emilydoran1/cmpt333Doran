@@ -35,15 +35,20 @@ interval(Day1-Month1, Day2-Month2, Difference) :-
 %% base case - dates are the same
 interval(Day-Month, Day-Month, Acc, Acc).
 
-%% dates are in the same month
+%% dates are in the same month and Day1 <= Day2
 interval(Day1-Month, Day2-Month, _, Difference) :-
     Day1 =< Day2,
     Difference is Day2 - Day1.
 
-%% recursively call function adding to Acc until the dates are equal, then will return Difference
+%% recursively call function adding to Acc until the dates are equal, then will return Difference. Assumes Day1-Month1 < Day2-Month2
 interval(Day1-Month1, Day2-Month2, Acc, Difference):-
     Month1 \= Month2,
     month(Month1, Days),
     Acc1 is Acc + Days - Day1 + Day2,
     next_month(Month1, NextMonth),
     interval(Day2-NextMonth, Day2-Month2, Acc1, Difference).
+
+%% dates are in the same month and Day1 > Day2
+interval(Day1-Month, Day2-Month, _, Difference) :-
+    Day1 > Day2,
+    Difference is Day1 - Day2.
