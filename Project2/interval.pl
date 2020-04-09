@@ -47,6 +47,3 @@ interval(Day1-Month1, Day2-Month2, Acc, Difference):-
     Acc1 is Acc + Days - Day1 + Day2,
     next_month(Month1, NextMonth),
     interval(Day2-NextMonth, Day2-Month2, Acc1, Difference).
-
-
-    
