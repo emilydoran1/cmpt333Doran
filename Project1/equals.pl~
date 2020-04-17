@@ -33,5 +33,4 @@ equals(List1, List2) :-
 	unnest_v1(List1, FlatList1),
 	unnest_v1(List2, FlatList2),
 	sublist(FlatList1, FlatList2),
-	sublist(FlatList2, FlatList1),
-	!.
+	sublist(FlatList2, FlatList1).

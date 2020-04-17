@@ -4,8 +4,7 @@
 unnest_v1([],[]).
 
 %% there is a single element in the List
-unnest_v1(X, [X]) :-
-	atom(X).
+unnest_v1(List, [List]).
 
 %% recursively call unnest until all elements are unnested. Then, append the unnested lists.
 unnest_v1([X|List], FlatList) :-
