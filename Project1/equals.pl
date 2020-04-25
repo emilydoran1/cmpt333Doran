@@ -33,5 +33,10 @@ equals(List1, List2) :-
 	unnest_v1(List1, FlatList1),
 	unnest_v1(List2, FlatList2),
 	sublist(FlatList1, FlatList2),
+<<<<<<< HEAD
 	sublist(FlatList2, FlatList1),
 	!.
+=======
+	sublist(FlatList2, FlatList1).
+
+>>>>>>> 6650ea2f65215aea14e27f3aa5ae80b977724988
