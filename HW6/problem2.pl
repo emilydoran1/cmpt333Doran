@@ -38,10 +38,12 @@ apply(insert(Line),file(Xs,Ys),file(Xs,[Line|Ys])).
 
 apply(delete,file(Xs,[_|Ys]),file(Xs,Ys)).
 
+%% print current cursor location in file
 apply(print,file([X|Xs],Ys),file([X|Xs],Ys)) :-
     write(X),
     nl.
 
+%% print whole file
 apply(print(*),file(Xs,Ys),file(Xs,Ys)) :-
     reverse(Xs,Xsl),
     write_file(Xsl),
