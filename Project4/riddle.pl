@@ -63,7 +63,10 @@ leap_year(Year) :-
 riddle(Day, Month, Year) :-
     riddle(Day, Month, 1900, Year).
 
-%% call to solve the riddle - increments year if days are not equal
+%% call to solve the riddle
+%% gets possible months and checks that the year was a leap year and that they were married prior to february
+%% checks that the day of week was a saturday
+%% if the day was not saturday it increments the year
 riddle(Day, Month, Acc, Year) :-
     birthday_day(Day),
     not(leap_year(Acc)),
@@ -76,6 +79,9 @@ riddle(Day, Month, Acc, Year) :-
     riddle(Day, Month, Acc1, Year).
 
 %% call to solve the riddle - days of week are equal
+%% gets possible months and checks that the year was a leap year and that they were married prior to february
+%% checks that the day of week was a saturday
+%% if day was a satuday, it sets year carols mom was born equal to year they were married plus 8
 riddle(Day, Month, Acc, Year) :-
     birthday_day(Day),
     not(leap_year(Acc)),
